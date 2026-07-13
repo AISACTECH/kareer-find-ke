@@ -1,0 +1,83 @@
+{
+  "name": "Assessment",
+  "type": "object",
+  "properties": {
+    "student_name": {
+      "type": "string",
+      "description": "Student's full name"
+    },
+    "academic_data": {
+      "type": "object",
+      "description": "KCSE/CBE grades and academic info"
+    },
+    "hobbies_background": {
+      "type": "object",
+      "description": "Hobbies and background information"
+    },
+    "personality_scores": {
+      "type": "object",
+      "description": "4-axis personality assessment results"
+    },
+    "interest_ratings": {
+      "type": "object",
+      "description": "Interest category ratings"
+    },
+    "astrology_data": {
+      "type": "object",
+      "description": "Birth date and zodiac information"
+    },
+    "career_matches": {
+      "type": "array",
+      "description": "Calculated career matches with scores",
+      "items": {
+        "type": "object"
+      }
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "student_name"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
