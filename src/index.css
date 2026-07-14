@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 43 74% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 92%;
+    --secondary-foreground: 222 47% 20%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 20% 90%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 20% 85%;
+    --input: 214 20% 88%;
+    --ring: 43 74% 48%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 15%;
+    --sidebar-primary: 43 74% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 94%;
+    --sidebar-accent-foreground: 222 47% 15%;
+    --sidebar-border: 214 20% 85%;
+    --sidebar-ring: 43 74% 48%;
+
+    /* Brand color variables — light mode */
+    --brand-bg: 210 20% 97%;
+    --brand-card: 0 0% 100%;
+    --brand-nav: 0 0% 100%;
+    --brand-accent-blue: 210 40% 24%;
+    --brand-accent-blue-hover: 210 40% 30%;
+    --brand-gold: 38 74% 48%;
+    --brand-gold-hover: 38 74% 42%;
+    --brand-text: 222 47% 11%;
+    --brand-text-muted: 215 16% 47%;
+    --brand-border: 214 20% 85%;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 92%;
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 92%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 92%;
+    --primary: 43 74% 58%;
+    --primary-foreground: 222 47% 7%;
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 210 40% 85%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 210 20% 55%;
+    --accent: 222 30% 18%;
+    --accent-foreground: 210 40% 92%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 16%;
+    --ring: 43 74% 58%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 43 74% 58%;
+    --sidebar-primary-foreground: 222 47% 7%;
+    --sidebar-accent: 222 30% 14%;
+    --sidebar-accent-foreground: 210 40% 85%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 43 74% 58%;
+
+    /* Brand color variables — dark mode */
+    --brand-bg: 222 47% 7%;
+    --brand-card: 222 47% 10%;
+    --brand-nav: 222 47% 5%;
+    --brand-accent-blue: 210 40% 24%;
+    --brand-accent-blue-hover: 210 40% 30%;
+    --brand-gold: 43 74% 58%;
+    --brand-gold-hover: 43 74% 52%;
+    --brand-text: 210 40% 92%;
+    --brand-text-muted: 210 20% 55%;
+    --brand-border: 222 30% 18%;
+  }
+}
+
+/* Light mode overrides for hardcoded brand colors */
+body:not(.dark) {
+  /* Background colors */
+  .bg-\[\#0a0f1e\] { background-color: hsl(var(--brand-bg)) !important; }
+  .bg-\[\#0d1526\] { background-color: hsl(var(--brand-card)) !important; }
+
+  /* Text colors */
+  .text-white { color: hsl(var(--brand-text)) !important; }
+  .text-slate-300 { color: hsl(215 16% 35%) !important; }
+  .text-slate-400 { color: hsl(215 16% 45%) !important; }
+  .text-slate-500 { color: hsl(215 16% 50%) !important; }
+  .text-slate-600 { color: hsl(215 16% 40%) !important; }
+
+  /* Borders */
+  .border-\[\#1e3a5f\]\/50 { border-color: hsl(var(--brand-border)) !important; }
+  .border-\[\#1e3a5f\]\/30 { border-color: hsl(var(--brand-border)) !important; }
+  .border-\[\#1e3a5f\]\/40 { border-color: hsl(var(--brand-border)) !important; }
+  .border-\[\#1e3a5f\]\/60 { border-color: hsl(var(--brand-border)) !important; }
+
+  /* Gold accent stays but adjusted */
+  .text-\[\#d4a853\] { color: hsl(var(--brand-gold)) !important; }
+  .bg-\[\#d4a853\] { background-color: hsl(var(--brand-gold)) !important; }
+  .hover\:bg-\[\#c49843\]:hover { background-color: hsl(var(--brand-gold-hover)) !important; }
+  .border-\[\#d4a853\]\/20 { border-color: hsl(var(--brand-gold) / 0.3) !important; }
+  .border-\[\#d4a853\]\/30 { border-color: hsl(var(--brand-gold) / 0.4) !important; }
+
+  /* Blue accent */
+  .bg-\[\#1e3a5f\] { background-color: hsl(var(--brand-accent-blue)) !important; }
+  .hover\:bg-\[\#2d4a6f\]:hover { background-color: hsl(var(--brand-accent-blue-hover)) !important; }
+
+  /* Shadows adjust */
+  .shadow-xl { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important; }
+  .shadow-lg { box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important; }
+  .shadow-md { box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05) !important; }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
